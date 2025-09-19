@@ -32,6 +32,7 @@ img {
     margin: 0 auto;
 }
 
+/* BUTTONS */
 .btn {
     display: inline-block;
     padding: 12px 28px;
@@ -62,19 +63,40 @@ img {
     color: #000;
 }
 
-section {
-    padding: 80px 0;
+.btn-white {
+    display: inline-block;
+    padding: 12px 30px;
+    background: white;
+    color: #000;
+    font-weight: 600;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn-transparent-white {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
 }
 
 /* HEADER */
 header {
-    background: #000;
+    background: rgba(0,0,0,0.8);
     color: #fff;
     padding: 20px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
 }
 
 nav {
@@ -101,67 +123,77 @@ nav {
     color: #d4af37;
 }
 
-/* HERO */
-.hero {
-    background: linear-gradient(135deg, #0f0f0f 0%, #2c2c2c 100%);
-    color: #fff;
+/* RAINBOW HERO */
+.hero-rainbow {
+    background: linear-gradient(135deg, #00ff00 0%, #0000ff 25%, #0000ff 50%, #ff0000 75%, #ff00ff 100%);
+    color: white;
+    padding: 120px 0;
     text-align: center;
-    padding: 120px 20px;
 }
 
-.hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    line-height: 1.2;
+.hero-rainbow h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    font-weight: 700;
 }
 
-.hero p {
-    font-size: 1.3rem;
+.hero-rainbow p {
+    font-size: 1.2rem;
     max-width: 700px;
-    margin: 0 auto 40px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
 }
 
-/* LEGAL & CONTENT PAGES */
-.legal-content, .content-box {
-    background: #fff;
-    padding: 40px;
-    border-radius: 8px;
+/* SERVICES GRID */
+.services-grid {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 80px 0;
+}
+
+.service-card {
+    background: white;
+    border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    line-height: 1.8;
-    font-size: 1rem;
-    color: #222;
+    padding: 30px;
+    flex: 1;
+    min-width: 300px;
+    transition: transform 0.3s ease;
 }
 
-.legal-content h1, .content-box h1 {
-    font-size: 2.2rem;
-    margin-bottom: 30px;
-    color: #000;
-    border-bottom: 2px solid #d4af37;
-    padding-bottom: 10px;
+.service-card:hover {
+    transform: translateY(-5px);
 }
 
-.legal-content h2, .content-box h2 {
-    font-size: 1.4rem;
-    margin: 30px 0 15px;
-    color: #000;
+.service-card h3 {
+    color: #111;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.legal-content p, .content-box p {
-    margin-bottom: 20px;
+.service-card ul {
+    list-style: none;
+    margin: 20px 0 0;
+    padding: 0;
 }
 
-.legal-content ul, .content-box ul {
-    margin-left: 20px;
-    margin-bottom: 20px;
+.service-card li {
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
 }
 
-.legal-content li, .content-box li {
-    margin-bottom: 8px;
-}
-
-.legal-content a, .content-box a {
+.service-card li:before {
+    content: "✓";
     color: #d4af37;
-    text-decoration: underline;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
 }
 
 /* FOOTER */
@@ -246,21 +278,26 @@ footer a {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
     .nav-links {
         gap: 15px;
         font-size: 0.9rem;
     }
 
-    section {
+    .hero-rainbow h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-rainbow p {
+        font-size: 1.1rem;
+    }
+
+    .services-grid {
+        flex-direction: column;
         padding: 60px 0;
     }
 
-    .legal-content, .content-box {
-        padding: 20px;
-        font-size: 0.95rem;
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
     }
 }
